@@ -38,7 +38,7 @@ FOR k=0, nlam-2 DO BEGIN
 ;		ENDFOR
 ;	ENDFOR
 	print,string(lowlam)+', '+string(highlam)
-	b1=obj_new("IDL_IDLBridge", output=' ')  ; Initiate IDL bridge/child process
+	b1=obj_new("IDL_IDLBridge", output='')  ; Initiate IDL bridge/child process
     b1->setvar, 'var1', incs(0)
     b1->setvar, 'var2', systype(1)
     b1->setvar, 'var3', lowlam
@@ -46,7 +46,7 @@ FOR k=0, nlam-2 DO BEGIN
 	b1->execute,'outvar=haystacks(var1,var2,var3,var4)',/nowait
 	print,'Process launched'
 
-	b2=obj_new("IDL_IDLBridge", output=' ')  ; Initiate IDL bridge/child process
+	b2=obj_new("IDL_IDLBridge", output='')  ; Initiate IDL bridge/child process
     b2->setvar, 'var1', incs(1)
     b2->setvar, 'var2', systype(1)
     b2->setvar, 'var3', lowlam
@@ -54,7 +54,7 @@ FOR k=0, nlam-2 DO BEGIN
 
 	b2->execute,'outvar=haystacks(var1,var2,var3,var4)',/nowait
 	print,'Process launched'
-	b3=obj_new("IDL_IDLBridge", output=' ')  ; Initiate IDL bridge/child process
+	b3=obj_new("IDL_IDLBridge", output='')  ; Initiate IDL bridge/child process
     b3->setvar, 'var1', incs(2)
     b3->setvar, 'var2', systype(1)
     b3->setvar, 'var3', lowlam
@@ -62,7 +62,7 @@ FOR k=0, nlam-2 DO BEGIN
 	b3->execute,'outvar=haystacks(var1,var2,var3,var4)',/nowait
 
 	print,'Process launched'                  
-	b4=obj_new("IDL_IDLBridge", output=' ')  ; Initiate IDL bridge/child process
+	b4=obj_new("IDL_IDLBridge", output='')  ; Initiate IDL bridge/child process
     b4->setvar, 'var1', incs(0)
     b4->setvar, 'var2', systype(0)
     b4->setvar, 'var3', lowlam
@@ -70,7 +70,7 @@ FOR k=0, nlam-2 DO BEGIN
 	b4->execute,'outvar=haystacks(var1,var2,var3,var4)',/nowait
 
 	print,'Process launched'
-	b5=obj_new("IDL_IDLBridge", output=' ')  ; Initiate IDL bridge/child process
+	b5=obj_new("IDL_IDLBridge", output='')  ; Initiate IDL bridge/child process
     b5->setvar, 'var1', incs(1)
     b5->setvar, 'var2', systype(0)
     b5->setvar, 'var3', lowlam
@@ -78,7 +78,7 @@ FOR k=0, nlam-2 DO BEGIN
 	b5->execute,'outvar=haystacks(var1,var2,var3,var4)',/nowait
 
 	print,'Process launched'
-	b6=obj_new("IDL_IDLBridge", output=' ')  ; Initiate IDL bridge/child process
+	b6=obj_new("IDL_IDLBridge", output='')  ; Initiate IDL bridge/child process
     b6->setvar, 'var1', incs(2)
     b6->setvar, 'var2', systype(0)
     b6->setvar, 'var3', lowlam
