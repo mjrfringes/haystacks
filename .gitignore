@@ -6,10 +6,24 @@ Cube_Videos/
 
 Spectra_Input/
 
-Spectral_Final_Lincowski/
+Spectra_Final_Lincowski/
 
 inc0/
 
 haystacks1/
 
 haystacks2/
+
+Manual/
+
+Old/
+
+*.sav
+
+.DS_Store
+
+*ipynb*
+
+.project
+
+*~
