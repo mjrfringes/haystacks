@@ -1,5 +1,10 @@
 PRO Haystacks_loop_split
 
+; This function runs all the haystacks cubes in parallel
+; no arguments are needed, just run the IDL program
+; it will output a file (fname) with the list of all cubes created
+
+
 incs = [0,60,90]
 systype = ['modern','archean']
 

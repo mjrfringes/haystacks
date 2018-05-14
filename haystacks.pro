@@ -19,6 +19,10 @@ FUNCTION Haystacks,inc,systype,minlam,maxlam
 ; Data is organized into multiple FITS extensions for convenience
 ; Please refer to the Haystacks website for an explanation of the data structure
 ; https://asd.gsfc.nasa.gov/projects/haystacks/haystacks.html
+; inc: inclination in degrees
+; systype: either 'archean' or 'modern' depending on the desired epoch
+; minlam: minimum wavelength in microns
+; maxlam: maximum wavelength in microns
 
 
   t_start = systime(/sec)
