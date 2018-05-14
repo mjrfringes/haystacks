@@ -1,8 +1,8 @@
 ; 
-; Haystacks v2.0 - 2014-08-06
-;
-; v2.0 is an overhaul by Andrew Lincowski. 
-; Edited by Aki Roberge Winter 2014 - Spring 2015.
+; Haystacks v3.0 - 2018-05
+; 
+; v3.0 is a version of Haystacks best used for making all the cubes at once 
+; Contributors: Andrew Lincowski, Aki Roberge
 ;
 ; Pieces of this code are copied, borrowed, or are some distant
 ; ancestor of code written in IDL or python by: Maxime Rizzo, Erika Nesvold, 
@@ -12,6 +12,14 @@
 ;
 
 FUNCTION Haystacks,inc,systype,minlam,maxlam
+; Usage:
+; outvar=haystacks(inc,systype,minlam,maxlam)
+; outvar returns the name of the file with its destination folder
+; This function exports FITS cubes with all the required information in the header
+; Data is organized into multiple FITS extensions for convenience
+; Please refer to the Haystacks website for an explanation of the data structure
+; https://asd.gsfc.nasa.gov/projects/haystacks/haystacks.html
+
 
   t_start = systime(/sec)
 
