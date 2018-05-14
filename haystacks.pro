@@ -11,7 +11,7 @@
 ; ZODIPIC is from Kuchner (2007), revised by Chris Stark in 2014.
 ;
 
-FUNCTION Haystacks,inc,systype,minlam,maxlam ;,file_new
+FUNCTION Haystacks,inc,systype,minlam,maxlam
 
   t_start = systime(/sec)
 
@@ -29,12 +29,15 @@ proj_dir="/local/data/nicolaus2/mrizzo/Haystacks/Solar_System/"
   sun = 1                   ; Default 0 = don't add Sun spectrum  
 
  
-  sres = 300.				; Spectral resolution
+;  sres = 300.				; Spectral resolution
+  sres = 1.				; Spectral resolution
   g = 0.17                   ; H-G scattering phase function asymmetry parameter
-  gauss = 24;24                	; Kernel size
+;  gauss = 24               	; Kernel size
+  gauss = 4               	; Kernel size
   dist = 10.               	; Distance in pc
-  ref_dist = 10.           	; Distance in pc
-  imgsize = 3333           	; Size of image in pixels. MUST BE AN ODD NUMBER
+  ref_dist = 10.           	; Reference Distance in pc
+  imgsize = 601           	; Size of image in pixels. MUST BE AN ODD NUMBER
+;  imgsize = 3333           	; Size of image in pixels. MUST BE AN ODD NUMBER
   res = 0.03          	; AU per pixel
   epoch_dt = 0.            	; Time from J2000, in years
   epoch_dt = 25.73 			; Epoch for Earth and Neptune in rough alignment along x-axis
@@ -309,7 +312,10 @@ DRAWDUSTCUBE:
   FOR k = 0, nlam - 1 DO BEGIN
      FOR i = 0, npix_z - 1 DO BEGIN
         FOR j = 0, npix_z - 1 DO BEGIN
-           IF fnu(i,j,k) ge dustcube(cpix - cpix_z + i,cpix - cpix_z + j, k) THEN dustcube(cpix - cpix_z + i,cpix - cpix_z + j, k) = fnu(i,j,k)
+			IF (cpix - cpix_z + i ge 0) AND (cpix - cpix_z + j ge 0) AND (cpix - cpix_z + i le npix-1) AND (cpix - cpix_z + j le npix-1) THEN BEGIN
+				print,cpix - cpix_z + i,cpix - cpix_z + j
+           		IF fnu(i,j,k) ge dustcube(cpix - cpix_z + i,cpix - cpix_z + j, k) THEN dustcube(cpix - cpix_z + i,cpix - cpix_z + j, k) = fnu(i,j,k)
+			ENDIF
         ENDFOR
      ENDFOR
   ENDFOR
@@ -464,7 +470,7 @@ BUILDCUBE:
   sxaddpar,head,'INC',inc,'System inclination in degrees'
   sxaddpar,head,'ZODI',zodi*zodi_scl,'Number of zodis'
   sxaddpar,head,'MINLAM',minlam,'Minimum wavelength (um)'
-  sxaddpar,head,'MAXLAM',maxlam,'Number of zodis'
+  sxaddpar,head,'MAXLAM',maxlam,'Maximum wavelength (um)'
   IF (const eq 0) THEN h3 = 'F' ELSE h3 = 'T'
   sxaddpar,head,'SMOOTH',h3,'Whether to smooth the dustmap or not'
   sxaddpar,head,'GAUSS',gauss,'Smoothing kernel size'

@@ -140,7 +140,7 @@ LOCATIONS:
   plpix(1,*) = round(plpos(1,*) / res) + c_img
 
 orbpar = [[p_radii],[a],[ecc],[incl],[longperi],[longnode],[meanlong],[argperi],[periods],[meananom],[transpose(plpos(0,*))],[transpose(plpos(1,*))],[transpose(pl_r)],[transpose(plpix(0,*))],[transpose(plpix(1,*))]]
-;orbpar = [[p_radii],[a],[ecc],[incl],[longperi],[longnode],[meanlong],[argperi],[periods],[meananom],[plpos(0,*)],[plpos(1,*)],[pl_r],[plpix(0,*)],[plpix(1,*)]]
+
 
 
   planetcube = fltarr(imgsize,imgsize,nlam)
